@@ -35,6 +35,7 @@ public class TestLinkedList {
         return newhead;
     }
 
+
     //插头发
     public ListNode reverseList_Demo2(ListNode head){
         ListNode newHead = new ListNode(-1);
