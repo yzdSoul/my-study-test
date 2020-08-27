@@ -36,6 +36,23 @@ public class TestLinkedList {
     }
 
 
+    //反转前N个节点
+    public ListNode reverseListN(ListNode head,int n){
+        ListNode successor = null;
+        if (n == 1){
+            //记录第 n + 1 个节点
+            successor = head.next;
+            return head;
+        }
+
+        ListNode next = head.next;
+        ListNode newhead =reverseListN(next,n - 1);
+        head.next.next = head;
+        head.next = successor;
+        return newhead;
+    }
+
+
     //插头发
     public ListNode reverseList_Demo2(ListNode head){
         ListNode newHead = new ListNode(-1);
