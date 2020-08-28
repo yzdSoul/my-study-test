@@ -1,4 +1,4 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.CS_Notes;
 
 /**
  * Created by yzd on 2020/8/24

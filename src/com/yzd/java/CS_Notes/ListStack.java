@@ -1,4 +1,4 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.CS_Notes;
 
 import java.util.Iterator;
 

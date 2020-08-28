@@ -1,11 +1,13 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.CS_Notes;
+
+import com.yzd.java.CS_Notes.MyStack;
 
 import java.util.Iterator;
 
 /**
  * Created by yzd on 2020/8/24
  */
-public class ArrayStack<Item> implements MyStack<Item>{
+public class ArrayStack<Item> implements MyStack<Item> {
 
     private Item[] items = (Item[]) new Object[1];
 
