@@ -1,4 +1,4 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.leetcode.data_structure.list;
 
 import org.junit.Test;
 

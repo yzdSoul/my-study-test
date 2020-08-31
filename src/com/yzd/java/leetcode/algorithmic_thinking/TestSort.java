@@ -1,4 +1,4 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.leetcode.algorithmic_thinking;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

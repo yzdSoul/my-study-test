@@ -1,10 +1,10 @@
-package com.yzd.java.leetcode.tree;
+package com.yzd.java.leetcode.data_structure.tree;
 
 /**
  * Created by yzd on 2020/8/28
  */
 class TreeNode {
-    private int val;
+     int val;
     TreeNode left;
     TreeNode right;
 

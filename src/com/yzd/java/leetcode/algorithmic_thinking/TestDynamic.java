@@ -1,4 +1,4 @@
-package com.yzd.java.leetcode;
+package com.yzd.java.leetcode.algorithmic_thinking;
 
 /**
  * Created by yzd on 2020/6/5
