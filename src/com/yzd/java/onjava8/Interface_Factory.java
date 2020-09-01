@@ -1,3 +1,5 @@
+package com.yzd.java.onjava8;
+
 // interfaces/Factories.java
 interface Service {
     void method1();
