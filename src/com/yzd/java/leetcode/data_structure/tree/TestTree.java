@@ -232,6 +232,7 @@ public class TestTree {
         return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
     }
 
+
     private boolean isLeaf(TreeNode node){
         if (node == null) return false;
         return node.left == null && node.right == null;
