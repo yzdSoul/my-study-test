@@ -190,4 +190,50 @@ public class TestTree {
         if (t.val != s.val) return false;
         return isSubtreeWithRoot(s.left,t.left) && isSubtreeWithRoot(s.right,t.right);
      }
+
+//     101. Symmetric Tree (Easy)  树的对称
+//                  1
+//                 / \
+//                2   2
+//               / \ / \
+//              3  4 4  3
+    public boolean isSymmetric(TreeNode root){
+        if (root == null) return true;
+        return isSymmetric(root.left,root.left);
+    }
+    private boolean isSymmetric(TreeNode t1 , TreeNode t2){
+        if (t1 == null && t2 == null) return true;
+        if (t1 == null || t2 == null) return false;
+        if (t1.val != t2.val) return false;
+        return isSymmetric(t1.left, t2.right) && isSymmetric(t1.right, t2.left);
+    }
+
+//    111. Minimum Depth of Binary Tree (Easy)  树的根节点到叶子节点的最小路径长度
+
+    public int minDepth(TreeNode root) {
+        if (root == null) return 0;
+        int left = minDepth(root.left);
+        int right = minDepth(root.right);
+        if (left == 0 || right == 0) return right + left + 1;
+        return Math.min(left,right) + 1;
+    }
+
+//    404. Sum of Left Leaves (Easy)  统计左叶子节点的和
+
+//            3
+//           / \
+//          9  20
+//            /  \
+//           15   7
+//  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+    public int sumOfLeftLeaves(TreeNode root){
+        if (root == null) return 0;
+        if (isLeaf(root.left)) return root.left.val + sumOfLeftLeaves(root.right);
+        return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+    }
+
+    private boolean isLeaf(TreeNode node){
+        if (node == null) return false;
+        return node.left == null && node.right == null;
+    }
 }

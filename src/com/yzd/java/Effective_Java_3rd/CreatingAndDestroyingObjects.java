@@ -14,9 +14,10 @@ public class CreatingAndDestroyingObjects {
     public static void main(String[] args) {
         long start,end;
         start = System.currentTimeMillis();
-        valueOf(1 == 2);
+        Boolean b = valueOf(2 == 2);
         end = System.currentTimeMillis();
 
         System.out.println("start time:" + start+ "; end time:" + end+ "; Run Time:" + (end - start) + "(ms)");
+        System.out.println(b);
     }
 }
