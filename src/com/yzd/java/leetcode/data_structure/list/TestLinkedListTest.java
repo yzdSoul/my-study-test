@@ -39,4 +39,12 @@ public class TestLinkedListTest {
         ListNode reverseListN = linkedList.reverseListN(head, 3);
         System.out.println(reverseListN);
     }
+
+    @Test
+    public void swapParis(){
+        ListNode head = creatList();
+        System.out.println(head);
+        ListNode paris = linkedList.swapParis(head);
+        System.out.println(paris);
+    }
 }

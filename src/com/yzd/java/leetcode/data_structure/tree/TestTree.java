@@ -237,4 +237,47 @@ public class TestTree {
         if (node == null) return false;
         return node.left == null && node.right == null;
     }
+
+//    687. Longest Univalue Path (Easy)
+
+//                 1
+//                / \
+//               4   5
+//              / \   \
+//             4   4   5
+//
+//    Output : 2
+    private int path = 0;
+
+    public int longestUnivaluePath(TreeNode root){
+        dfs(root);
+        return path;
+    }
+
+    private int dfs (TreeNode root){
+        if (root == null) return 0;
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        int leftPath = root.left != null && root.left.val == root.val ? left + 1 : 0;
+        int rightPath = root.right != null && root.right.val == root.val ? right + 1 : 0;
+        path = Math.max(path, leftPath + rightPath);
+        return Math.max(leftPath,rightPath);
+    }
+
+//    337. House Robber III (Medium) 打家劫舍
+//         3
+//        / \
+//       2   3
+//        \   \
+//         3   1
+//    Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
+
+    public int rob(TreeNode root){
+        if (root == null) return 0;
+        int val1 = root.val;
+        if (root.left != null) val1 += rob(root.left.left) + rob(root.left.right);
+        if (root.right != null) val1 += rob(root.right.left) + rob(root.right.right);
+        int val2 = rob(root.left) + rob(root.right);
+        return Math.max(val1, val2);
+    }
 }
