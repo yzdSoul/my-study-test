@@ -14,19 +14,35 @@ public class HouseRobber {
 //    来源：力扣（LeetCode）
 //    链接：https://leetcode-cn.com/problems/house-robber
 
+/**
+    public int rob(int[] nums){
+       return dp(nums, 0);
+    }
+
+    private int dp(int[] nums,int start){
+        if (start>=nums.length) return 0;
+        int res = Math.max(dp(nums,start + 1),
+                nums[start] + dp(nums,start + 2) );
+        return res;
+    }
+*/
+/**
+ * 有重叠子 加备忘录优化  自顶向下动态规划解法
     private int[] memo;
 
     public int rob(int[] nums){
         memo = new int[nums.length];
-        Arrays.fill(memo,-1);
+        Arrays.fill(memo, -1);
         return dp(nums, 0);
     }
+
     private int dp(int[] nums,int start){
-        if (start >= nums.length) return 0;
+        if (start>=nums.length) return 0;
         if (memo[start] != -1) return memo[start];
         int res = Math.max(dp(nums, start + 1), nums[start] + dp(nums, start + 2));
         memo[start] = res;
-        return res;
-    }
+        return  res;
+    }*/
+
 
 }
