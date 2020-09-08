@@ -3,10 +3,10 @@ package com.yzd.java.leetcode.data_structure.tree;
 /**
  * Created by yzd on 2020/8/28
  */
-class TreeNode {
-     int val;
-    TreeNode left;
-    TreeNode right;
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     @Override
     public String toString() {
