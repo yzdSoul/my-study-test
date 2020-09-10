@@ -1,5 +1,7 @@
 package com.yzd.java.fucking_algorithm;
 
+import java.util.Arrays;
+
 /**
  * Created by yzd on 2020/9/9
  */
@@ -13,7 +15,7 @@ public class CoinChange {
      * 输出: 3
      * 解释: 11 = 5 + 5 + 1
      */
-    public int coinChange(int[] coins, int amount){
+/*    public int coinChange(int[] coins, int amount){
         return coinChange(0, coins, amount);
     }
 
@@ -33,5 +35,22 @@ public class CoinChange {
             return (minCost == Integer.MAX_VALUE) ? -1 : minCost;
         }
         return -1;
+    }*/
+
+//递归版
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        for (int i = 0; i < dp.length; i++) {
+            dp[i] = i;
+        }
+        for (int i = 0; i < dp.length; i++) {
+            for (int coin : coins) {
+                if (i - coin < 0) {
+                    continue;
+                }
+                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+            }
+        }
+        return (dp[amount] == amount + 1) ? -1 : dp[amount];
     }
 }

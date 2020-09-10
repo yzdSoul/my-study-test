@@ -13,8 +13,8 @@ public class CoinChangeTest {
     @Test
     public void coinChDp() {
         CoinChange coin = new CoinChange();
-        int[] coins = new int[]{1, 2, 5};
-        int amount = 11;
+        int[] coins = new int[]{1, 5, 2};
+        int amount = 13;
         int i = coin.coinChange(coins, amount);
         System.out.println(i);
     }
