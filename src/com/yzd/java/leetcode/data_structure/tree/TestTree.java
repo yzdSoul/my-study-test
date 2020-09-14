@@ -1,6 +1,11 @@
 package com.yzd.java.leetcode.data_structure.tree;
 
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * Created by yzd on 2020/8/28
  */
@@ -279,5 +284,70 @@ public class TestTree {
         if (root.right != null) val1 += rob(root.right.left) + rob(root.right.right);
         int val2 = rob(root.left) + rob(root.right);
         return Math.max(val1, val2);
+    }
+
+//    671. Second Minimum Node In a Binary Tree (Easy)
+//    Input:
+//            2
+//           / \
+//          2   5
+//         / \
+//        5   7
+//
+//    Output: 5
+    public int findSecondMinimumValue(TreeNode root){
+        if (root == null ) return -1;
+        if (root.left == null && root.right == null) return -1;
+        int leftVal = root.left.val, rightVal = root.right.val;
+        if (leftVal == root.val) leftVal = findSecondMinimumValue(root.left);
+        if (rightVal == root.val) rightVal = findSecondMinimumValue(root.right);
+        if (leftVal != -1 && rightVal != -1) return Math.min(leftVal, rightVal);
+        if (leftVal != -1) return leftVal;
+        return rightVal;
+    }
+
+//637. Average of Levels in Binary Tree (Easy)
+    public List<Double> averageOfLevels(TreeNode root){
+        List<Double> ret = new ArrayList<>();
+        if (root == null) return ret;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            double sum = 0;
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                sum += node.val;
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            ret.add(sum / size);
+        }
+        return ret;
+    }
+
+//   513. Find Bottom Left Tree Value (Easy)
+
+    //    Input:
+//
+//            1
+//           / \
+//          2   3
+//         /   / \
+//        4   5   6
+//       /
+//      7
+//
+//    Output:
+//    7
+    public int findBottomLeftVale(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            root = queue.poll();
+            if (root.right != null) queue.add(root.right);
+            if (root.left!= null) queue.add(root.left);
+        }
+        return root.val;
     }
 }
