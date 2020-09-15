@@ -34,7 +34,7 @@ public class Permute {
 
             backTrack(nums, track);
 
-            track.remove();
+            track.removeLast();
         }
     }
 }
