@@ -15,42 +15,41 @@ public class CoinChange {
      * 输出: 3
      * 解释: 11 = 5 + 5 + 1
      */
-/*    public int coinChange(int[] coins, int amount){
-        return coinChange(0, coins, amount);
+    public int[] memo;
+    public int coinChange(int[] coins, int amount){
+        memo = new int[amount + 1];
+        return dp(coins,amount);
     }
-
-    private int coinChange(int idxCoin, int[] coins, int amount) {
+    private int dp(int[] coins, int amount) {
         if (amount == 0) return 0;
-        if (idxCoin < coins.length && amount > 0) {
-            int maxVal = amount / coins[idxCoin];
-            int minCost = Integer.MAX_VALUE;
-            for (int x = 0; x <= maxVal; x++) {
-                if (amount >= x * coins[idxCoin]) {
-                    int res = coinChange(idxCoin + 1, coins, amount - x * coins[idxCoin]);
-                    if (res != -1) {
-                        minCost = Math.min(minCost, res + x);
-                    }
-                }
+        if (amount < 0) return -1;
+        if (memo[amount] !=0) return memo[amount];
+        int res = Integer.MAX_VALUE;
+        for (int coin : coins) {
+            int subp = dp(coins, amount - coin);
+            if (subp == -1) {
+                continue;
             }
-            return (minCost == Integer.MAX_VALUE) ? -1 : minCost;
+            res = Math.min(res, 1 + subp);
         }
-        return -1;
-    }*/
+        return memo[amount] = res == Integer.MAX_VALUE ? -1 : res;
 
-//递归版
-    public int coinChange(int[] coins, int amount) {
-        int[] dp = new int[amount + 1];
-        for (int i = 0; i < dp.length; i++) {
-            dp[i] = i;
-        }
-        for (int i = 0; i < dp.length; i++) {
-            for (int coin : coins) {
-                if (i - coin < 0) {
-                    continue;
-                }
-                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
-            }
-        }
-        return (dp[amount] == amount + 1) ? -1 : dp[amount];
     }
+
+////迭代版
+//    public int coinChange(int[] coins, int amount) {
+//        int[] dp = new int[amount + 1];
+//        for (int i = 0; i < dp.length; i++) {
+//            dp[i] = i;
+//        }
+//        for (int i = 0; i < dp.length; i++) {
+//            for (int coin : coins) {
+//                if (i - coin < 0) {
+//                    continue;
+//                }
+//                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+//            }
+//        }
+//        return (dp[amount] == amount + 1) ? -1 : dp[amount];
+//    }
 }
