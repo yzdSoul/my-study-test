@@ -1,6 +1,7 @@
 package com.yzd.java.onjava8;
 
 
+import com.sun.org.apache.xpath.internal.operations.Operation;
 import com.yzd.java.Peopel;
 import org.junit.Test;
 import java.util.*;
@@ -105,5 +106,22 @@ public class StreamTest {
         repeat(3,() -> System.out.println("Looping!"));
     }
 
+    @Test
+    public void arrayStreams(){
+        Arrays.stream(new double[]{3.14159, 2.718, 1.618})
+                .forEach(n -> System.out.format("%f ", n));
+        System.out.println();
 
+        Arrays.stream(new int[]{1, 3, 5, 7})
+                .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+
+        Arrays.stream(new long[]{11, 22, 44, 55})
+                .forEach(n -> System.out.format("%d ", n));
+
+        System.out.println();
+        //选择一个子域：
+        Arrays.stream(new int[]{1, 3, 5, 6, 7, 8, 43, 56}, 3, 6)
+                .forEach(n -> System.out.printf("%d ", n));
+    }
 }
