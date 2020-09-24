@@ -1,10 +1,8 @@
 package com.yzd.java.onjava8;
-
-
-import com.sun.org.apache.xpath.internal.operations.Operation;
 import com.yzd.java.Peopel;
 import org.junit.Test;
 import java.util.*;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.IntStream.range;
@@ -123,5 +121,25 @@ public class StreamTest {
         //选择一个子域：
         Arrays.stream(new int[]{1, 3, 5, 6, 7, 8, 43, 56}, 3, 6)
                 .forEach(n -> System.out.printf("%d ", n));
+    }
+
+    @Test
+    public void streamOfRandoms(){
+        Random random = new Random(48);
+        Stream.of(1, 2, 3, 4, 5)
+                .flatMapToInt(i -> IntStream.concat(
+                        random.ints(0, 100)
+                                .limit(i), IntStream.of(-1)))
+                        .forEach(n -> System.out.format("%d ",n));
+    }
+
+    @Test
+    public void optionalsFromEmptyStreams(){
+        System.out.println(Stream.<String>empty().findFirst());
+        System.out.println(Stream.<String>empty().findAny());
+        System.out.println(Stream.<String>empty().max(String.CASE_INSENSITIVE_ORDER));
+        System.out.println(Stream.<String>empty().min(String.CASE_INSENSITIVE_ORDER));
+        System.out.println(Stream.<String>empty().reduce((s1, s2) -> s1 + s2));
+        System.out.println(IntStream.empty().average());
     }
 }
