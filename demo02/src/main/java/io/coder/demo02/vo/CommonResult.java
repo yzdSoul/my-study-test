@@ -85,7 +85,7 @@ public class CommonResult<T> implements Serializable {
         CommonResult<T> result = new CommonResult<>();
         result.code = CODE_SUCCESS;
         result.data = data;
-        result.message = "";
+        result.message = "返回数据成功";
         return result;
     }
 

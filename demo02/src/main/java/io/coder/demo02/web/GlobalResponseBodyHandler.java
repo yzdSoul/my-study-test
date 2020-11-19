@@ -8,7 +8,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-@ControllerAdvice(basePackages = "cn.iocoder.springboot.lab23.springmvc.controller")
+@ControllerAdvice(basePackages = "io.coder.demo02.controller")
 public class GlobalResponseBodyHandler implements ResponseBodyAdvice {
 
     @Override
@@ -17,14 +17,12 @@ public class GlobalResponseBodyHandler implements ResponseBodyAdvice {
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType,
-                                  ServerHttpRequest request, ServerHttpResponse response) {
-        // 如果已经是 CommonResult 类型，则直接返回
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class converterType, ServerHttpRequest request, ServerHttpResponse response) {
+        //如果已经是 CommonResult 类型。则直接返回
         if (body instanceof CommonResult) {
             return body;
         }
-        // 如果不是，则包装成 CommonResult 类型
+        //如果不是，则包装成 CommonResult 类型
         return CommonResult.success(body);
     }
-
 }
