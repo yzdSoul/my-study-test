@@ -5,7 +5,16 @@
       <list>
         <option value="$PROJECT_DIR$/demo01/pom.xml" />
         <option value="$PROJECT_DIR$/demo02/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-provider/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml/dubbo-demo-xml-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectKey">
