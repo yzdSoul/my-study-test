@@ -5,7 +5,9 @@ import com.yzd.elastic.repository.ProductRepository02;
 import com.yzd.elastic.service.SelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,8 +26,12 @@ public class SelectServiceImpl implements SelectService {
     }
 
     @Override
-    public Page<ESNewDO> findByTitleLike(String title, Pageable pageable) {
-        Page<ESNewDO> news = productRepository02.findByTitleLike(title, pageable);
+    public Page<ESNewDO> findAllByTitle(String title) {
+        // 创建排序条件
+        Sort sort = Sort.by(Sort.Direction.DESC, "createtime");
+        // 创建分页条件。
+        Pageable pageable = PageRequest.of(0, 10, sort);
+        Page<ESNewDO> news = productRepository02.findAllByTitle(title, pageable);
         return news;
     }
 }

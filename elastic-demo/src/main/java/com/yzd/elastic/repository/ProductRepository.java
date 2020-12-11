@@ -7,6 +7,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 public interface ProductRepository extends ElasticsearchRepository<ESProductDO, Integer> {
     ESProductDO findByName(String name);
-    ESProductDO findAllByName(String name);
+    Page<ESProductDO> findAllByName(String name,Pageable pageable);
     Page<ESProductDO> findByNameLike(String name, Pageable pageable);
 }
