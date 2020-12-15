@@ -36,9 +36,25 @@ public class TestLinkedList {
     }
 
 
+    //    head -> next -> next -> next -> next -> next
+//    null      ↑开始反转
+//     ↑
+//    head <- next    next -> next -> next -> next
+//    反转完成
+//    head <- next  <-next <- next <- next <- newhead
+//    public ListNode reveserList(ListNode head){
+//        if (head == null || head.next == null) return head;
+//        ListNode next = head.next;
+//        ListNode newhead = reveserList(next);
+//        next.next = head;
+//        head.next = null;
+//        return newhead;
+//    }
+
+    ListNode successor = null;
     //反转前N个节点
     public ListNode reverseListN(ListNode head,int n){
-        ListNode successor = null;
+
         if (n == 1){
             //记录第 n + 1 个节点
             successor = head.next;
@@ -47,7 +63,7 @@ public class TestLinkedList {
 
         ListNode next = head.next;
         ListNode newhead =reverseListN(next,n - 1);
-        head.next.next = head;
+        next.next = head;
         head.next = successor;
         return newhead;
     }
