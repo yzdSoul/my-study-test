@@ -15,10 +15,10 @@ public class CoinChangeTest {
     @Test
     public void coinChDp() {
         CoinChange coin = new CoinChange();
-        int[] coins = new int[]{1, 5, 2};
-        int amount = 18;
-        int i = coin.coinChange(coins, amount);
+        int[] coins = new int[]{3, 7, 1};
+        int amount = 58;
+        int i = coin.coinChange2(coins, amount);
         System.out.println(i);
-        System.out.println(Arrays.toString(coin.memo));
+//        System.out.println(Arrays.toString(coin.memo));
     }
 }
