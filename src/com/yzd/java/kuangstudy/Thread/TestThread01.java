@@ -1,4 +1,4 @@
-package com.yzd.java.kuangstudy;
+package com.yzd.java.kuangstudy.Thread;
 
 /**
  * Created by yzd on 2021/2/3

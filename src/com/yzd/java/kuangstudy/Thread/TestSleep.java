@@ -1,9 +1,11 @@
-package com.yzd.java.kuangstudy;
+package com.yzd.java.kuangstudy.Thread;
 
 /**
- * Created by yzd on 2021/2/3
+ * Created by yzd on 2021/2/18
  */
-public class TestThread04 implements Runnable{
+//模拟网络延迟:放大问题的发生性
+public class TestSleep implements Runnable{
+
 
     private int ticketNums = 10;
 
@@ -24,11 +26,11 @@ public class TestThread04 implements Runnable{
     }
 
     public static void main(String[] args) {
-        TestThread04 thread04 = new TestThread04();
+        TestSleep ticket = new TestSleep();
 
-        new Thread(thread04,"小明").start();
-        new Thread(thread04,"老师").start();
-        new Thread(thread04,"黄牛党").start();
+        new Thread(ticket,"小明").start();
+        new Thread(ticket,"老师").start();
+        new Thread(ticket,"黄牛党").start();
 
     }
 }

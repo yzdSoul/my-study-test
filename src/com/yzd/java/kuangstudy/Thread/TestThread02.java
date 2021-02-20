@@ -1,4 +1,4 @@
-package com.yzd.java.kuangstudy;
+package com.yzd.java.kuangstudy.Thread;
 
 import org.apache.commons.io.FileUtils;
 
