@@ -14,4 +14,7 @@ public interface ProductRepository02 extends ElasticsearchRepository<ESNewDO, In
     ESNewDO findByTitle(String title);
 
     Page<ESNewDO> findByTitleLike(String title, Pageable pageable);
+
+    ESNewDO findByOrigin(String origin);
+
 }

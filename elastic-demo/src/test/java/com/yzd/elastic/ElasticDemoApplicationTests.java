@@ -151,6 +151,22 @@ class ElasticDemoApplicationTests {
         }
     }
 
+    @Test // 根据名字获得一条记录
+    public void testFindByOrigin() {
+        String str="观邯郸,公安部网安局,高密发布,赣南日报,甘肃建设报,阜阳情报站,福建电视台现场,风云解读,法在身边栏目,独家责任,东南观察室,东方卫视这就是中国,电力发布,第一财经有料,邓州市广播电视台,德州日报,大兴安岭广播电视台,大河报郑州新闻,城市晚报,成都反邪教,兵工科技,北青即时,保定电视台公共频道,半月谈新媒体,百悠快报,百姓视点,安徽卫视真人秀,安徽卫视每日新闻报,FM103.1济南交通广播,CCTV4远方的家,CCTV1等着我,BTV影视风云,BTV加油吧孩子";
+        List<String> origins = Arrays.asList(str.split(","));
+        for (int i = 0;i<origins.size();i++) {
+            try {
+                ESNewDO byOrigin = productRepository02.findByOrigin(origins.get(i));
+                System.out.println(byOrigin.getOrigin().equals(origins.get(i))+"\t"+byOrigin.getNewsType());
+            } catch (Exception e){
+                System.out.println("搜索超时："+origins.get(i));
+            }
+
+
+        }
+    }
+
 
 
     @Autowired
