@@ -10,72 +10,69 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Testpc3 {
     public static void main(String[] args) {
+        int loop = 10;
         Data3 data = new Data3();
         new Thread(()->{
-            for (int i = 0; i < 10; i++) {
-                data.printA();
+            for (int i = 0; i < loop; i++) {
+                data.printA(loop);
             }
         },"α").start();
         new Thread(()->{
-            for (int i = 0; i < 10; i++) {
-                data.printB();
+            for (int i = 0; i < loop; i++) {
+                data.printB(loop);
             }
         },"β").start();
         new Thread(()->{
-            for (int i = 0; i < 10; i++) {
-                data.printC();
+            for (int i = 0; i < loop; i++) {
+                data.printC(loop);
             }
         },"γ").start();
     }
 }
-
-
 class Data3 {
     private Lock lock = new ReentrantLock();
 
-    private Condition condition1 = lock.newCondition();
-    private Condition condition2= lock.newCondition();
-    private Condition condition3 = lock.newCondition();
+    private Condition condition = lock.newCondition();
     private int number = 1;
-    public void printA() {
+    public void printA(int loop) {
         lock.lock();
         try {
-            while (number != 1) {
-                condition1.await();
+            while (number%loop != 1) {
+                condition.await();
             }
             System.out.println(Thread.currentThread().getName()+"->A");
             number = 2;
-            condition2.signal();
+            condition.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             lock.unlock();
         }
     }
-    public void printB() {
+    public void printB(int loop) {
         lock.lock();
         try {
-            while (number != 2) {
-                condition2.await();
+            while (number%loop != 2) {
+                condition.await();
             }
             System.out.println(Thread.currentThread().getName()+"->B");
             number = 3;
-            condition3.signal();
+            condition.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             lock.unlock();
         }
     }
-    public void printC() {
+    public void printC(int loop) {
         lock.lock();
         try {
-            while (number != 3) {
-                condition3.await();
+            while (number%loop != 3) {
+                condition.await();
             }
             System.out.println(Thread.currentThread().getName() + "->C");
             number = 1;
-            condition1.signal();
+            condition.signalAll();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class JMMDemo {
     // 不加volatile 程序就会死循环
-    //保证可见性 不保证原子性
+    //保证可见性 不保证原子性 可以避免指令重排
     private static volatile int num = 0;
     public static void main(String[] args) throws InterruptedException {
         new Thread(()->{
