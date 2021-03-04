@@ -1,6 +1,6 @@
 package com.yzd.java.test;
 
-import com.yzd.java.fucking_algorithm.Permute;
+import com.yzd.java.fucking_algorithm.DFS.Permute;
 import org.junit.Test;
 
 import java.util.List;

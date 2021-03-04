@@ -1,6 +1,6 @@
 package com.yzd.java.test;
 
-import com.yzd.java.fucking_algorithm.NQueens;
+import com.yzd.java.fucking_algorithm.DFS.NQueens;
 import org.junit.Test;
 
 import java.util.List;

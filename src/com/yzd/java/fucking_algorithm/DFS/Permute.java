@@ -1,4 +1,4 @@
-package com.yzd.java.fucking_algorithm;
+package com.yzd.java.fucking_algorithm.DFS;
 
 import java.util.LinkedList;
 import java.util.List;

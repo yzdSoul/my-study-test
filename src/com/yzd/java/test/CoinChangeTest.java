@@ -1,11 +1,7 @@
 package com.yzd.java.test;
 
-import com.yzd.java.fucking_algorithm.CoinChange;
+import com.yzd.java.fucking_algorithm.DynamicProgramming.CoinChange;
 import org.junit.Test;
-
-import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by yzd on 2020/9/9

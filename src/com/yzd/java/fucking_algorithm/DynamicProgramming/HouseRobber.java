@@ -1,4 +1,4 @@
-package com.yzd.java.fucking_algorithm;
+package com.yzd.java.fucking_algorithm.DynamicProgramming;
 
 import com.yzd.java.leetcode.data_structure.tree.TreeNode;
 

@@ -1,4 +1,4 @@
-package com.yzd.java.fucking_algorithm;
+package com.yzd.java.fucking_algorithm.DynamicProgramming;
 
 /**
  * Created by yzd on 2020/9/9

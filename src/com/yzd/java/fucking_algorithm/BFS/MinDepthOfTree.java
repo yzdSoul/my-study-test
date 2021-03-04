@@ -1,4 +1,4 @@
-package com.yzd.java.fucking_algorithm;
+package com.yzd.java.fucking_algorithm.BFS;
 
 import com.yzd.java.leetcode.data_structure.tree.TreeNode;
 
@@ -54,5 +54,13 @@ public class MinDepthOfTree {
             depth++;
         }
         return depth;
+    }
+
+    public static void main(String[] args) {
+        MinDepthOfTree minDepthOfTree = new MinDepthOfTree();
+        TreeNode node = new TreeNode(3, new TreeNode(9), new TreeNode(20,new TreeNode(15),new TreeNode(7)));
+        int i = minDepthOfTree.minDepth(node);
+        System.out.println(i);
+
     }
 }
