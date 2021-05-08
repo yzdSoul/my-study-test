@@ -7,7 +7,6 @@ import java.util.Arrays;
 /**
  * Created by yzd on 2019/12/25
  */
-
 public class BubbleSortTest {
     @Test
     public void bubbleSort() {
@@ -20,5 +19,7 @@ public class BubbleSortTest {
         System.out.println("\n冒泡排序后：");
         Arrays.asList(result).stream()
                 .forEach(x -> System.out.print(x + " "));
+
+
     }
 }

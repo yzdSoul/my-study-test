@@ -71,5 +71,6 @@ public class StringMultiply {
         StringMultiply stringMultiply = new StringMultiply();
         String multiply = stringMultiply.multiply("123", "45");
         System.out.println(multiply);
+
     }
 }

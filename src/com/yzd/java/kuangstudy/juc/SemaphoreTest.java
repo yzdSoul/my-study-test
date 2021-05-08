@@ -10,7 +10,7 @@ public class SemaphoreTest {
     public static void main(String[] args) {
         //线程数量 停车位 限流
         // 多个共享资源互斥使用
-        Semaphore semaphore = new Semaphore(6);
+        Semaphore semaphore = new Semaphore(4);
 
         for (int i = 0; i <= 6; i++) {
             new Thread(()->{
