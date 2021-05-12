@@ -14,8 +14,14 @@ public class TreeNode {
                 "val=" + val +
                 '}';
     }
+    TreeNode(){}
+    public TreeNode(int var){
+        this.val = val;
+    }
 
-    TreeNode(int x){
-        val = x;
+    public TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
     }
 }

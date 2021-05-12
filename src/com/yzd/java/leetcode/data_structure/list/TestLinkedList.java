@@ -36,9 +36,25 @@ public class TestLinkedList {
     }
 
 
+    //    head -> next -> next -> next -> next -> next
+//    null      ↑开始反转
+//     ↑
+//    head <- next    next -> next -> next -> next
+//    反转完成
+//    head <- next  <-next <- next <- next <- newhead
+//    public ListNode reveserList(ListNode head){
+//        if (head == null || head.next == null) return head;
+//        ListNode next = head.next;
+//        ListNode newhead = reveserList(next);
+//        next.next = head;
+//        head.next = null;
+//        return newhead;
+//    }
+
+    ListNode successor = null;
     //反转前N个节点
     public ListNode reverseListN(ListNode head,int n){
-        ListNode successor = null;
+
         if (n == 1){
             //记录第 n + 1 个节点
             successor = head.next;
@@ -47,7 +63,7 @@ public class TestLinkedList {
 
         ListNode next = head.next;
         ListNode newhead =reverseListN(next,n - 1);
-        head.next.next = head;
+        next.next = head;
         head.next = successor;
         return newhead;
     }
@@ -125,6 +141,40 @@ public class TestLinkedList {
         }
         return node.next;
     }
+
+    public boolean hasCycle(ListNode head) {
+        ListNode fast, slow;
+        fast = slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) return true;
+        }
+        return false;
+    }
+
+    public ListNode detectCycle(ListNode head) {
+        ListNode fast,slow ;
+        fast = slow = head;
+        //判断是否有环
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) break;
+        }
+        if (fast == null || fast.next == null) return null;
+        //假设相遇点到环起点距离 m, slow 走了 k ,head 到环起点为 k-m
+        //此时 slow 和 fast 任意一个指向head然后同速前进
+        //走 k - m 后两指针就会相遇,此处就是环的起点
+        slow = head;
+        while (slow != fast) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+
 }
 
 

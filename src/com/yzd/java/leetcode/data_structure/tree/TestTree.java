@@ -1,10 +1,7 @@
 package com.yzd.java.leetcode.data_structure.tree;
 
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Created by yzd on 2020/8/28
@@ -70,9 +67,11 @@ public class TestTree {
 
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
-        TreeNode left = root.left;
-        root.left = invertTree(root.right);
-        root.right = invertTree(left);
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
         return root;
     }
 
@@ -349,5 +348,135 @@ public class TestTree {
             if (root.left!= null) queue.add(root.left);
         }
         return root.val;
+    }
+
+//    116. 填充每个节点的下一个右侧节点指针
+//    Definition for a Node.
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
+        }
+    }
+
+    public Node connect(Node root) {
+        if (root == null) {
+            return null;
+        }
+        connectTwoNode(root.left, root.right);
+        return root;
+    }
+
+    void connectTwoNode (Node node1, Node node2){
+        if (node1 == null || node2 == null) {
+            return;
+        }
+        node1.next = node2;
+        connectTwoNode(node1.left, node1.right);
+        connectTwoNode(node2.left, node2.right);
+        connectTwoNode(node1.right, node2.left);
+    }
+
+//114. 二叉树展开为链表
+//    https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
+//    展开的节点顺序与前序遍历顺序相同
+
+    public void flatten(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        flatten(root.left);
+        flatten(root.right);
+        // 后续遍历位置
+        // 1、左右子树已经被拉平成一条链表
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        // 2、将左子树作为右子树
+        root.left = null;
+        root.right = left;
+        // 3、将原先的右子树接到当前右子树的末端
+        TreeNode p = root;
+        while (p.right != null) {
+            p = p.right;
+        }
+        p.right = right;
+    }
+
+//    654. 最大二叉树
+//    https://leetcode-cn.com/problems/maximum-binary-tree/
+
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return build(nums, 0, nums.length - 1);
+    }
+
+    TreeNode build(int[] nums, int lo, int hi) {
+        if (lo > hi) {
+            return null;
+        }
+        //找到数组中的最大值和对应的索引
+        int index = -1, maxVal = Integer.MIN_VALUE;
+        for (int i = lo; i <= hi; i++) {
+            if (maxVal < nums[i]) {
+                index = i;
+                maxVal = nums[i];
+            }
+        }
+        TreeNode root = new TreeNode(maxVal);
+        // 递归调用构造左右子树
+        root.left = build(nums, lo, index - 1);
+        root.right = build(nums, index + 1, hi);
+
+        return root;
+    }
+
+
+//    105. 从前序与中序遍历序列构造二叉树
+//    https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return build(preorder, 0, preorder.length - 1,
+                inorder, 0, inorder.length - 1);
+    }
+
+    TreeNode build(int[] preorder, int preStart, int preEnd,
+                   int[] inorder, int inStart, int inEnd) {
+        //root 节点对应的值就是前序遍历数组的第一个元素
+
+        if (preStart > preEnd) {
+            return null;
+        }
+
+        int rootVal = preorder[preStart];
+        // rootVal 在中序遍历数组中的索引
+        int index = 0;
+        for (int i = inStart; i < inEnd; i++) {
+            if (inorder[i] == rootVal) {
+                index = i;
+                break;
+            }
+        }
+        int leftSize = index - inStart;
+
+        TreeNode root = new TreeNode(rootVal);
+        // 递归构造左右子树
+        root.left = build(preorder, preStart + 1, preStart + leftSize,
+                inorder, inStart, index - 1);
+        root.right = build(preorder, preStart + leftSize + 1, preEnd,
+                inorder, index + 1, inEnd);
+
+        return root;
     }
 }
