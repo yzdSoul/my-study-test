@@ -4,6 +4,12 @@ package com.yzd.java.leetcode.string;
 /**
  * Created by yzd on 2021/5/6
  */
+
+/**
+ * https://leetcode-cn.com/problems/rotate-string/
+ * 796. 旋转字符串
+ */
+
 public class RotateString {
     public boolean rotateString(String A, String B) {
         if (A.equals(B)) return true;
