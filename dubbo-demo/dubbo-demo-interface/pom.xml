@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId> <!-- JSR 参数校验规范实现，我们使用 hibernate-validator -->
-            <version>6.0.18.Final</version>
+            <version>6.0.20.Final</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
