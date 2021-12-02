@@ -15,13 +15,13 @@ public class ProducerMain {
     private static Producer<String, String> createProducer() {
         // 设置 Producer 的属性
         Properties properties = new Properties();
-        properties.put("bootstrap.servers", "10.200.0.239:9092"); // 设置 Broker 的地址
+        properties.put("bootstrap.servers", "localhost:9092"); // 设置 Broker 的地址
         properties.put("acks", "1"); // 0-不应答。1-leader 应答。all-所有 leader 和 follower 应答。
         properties.put("retries", 3); // 发送失败时，重试发送的次数
 //        properties.put("batch.size", 16384);
 //        properties.put("linger.ms", 1);
 //        properties.put("client.id", "DemoProducer");
-//        properties.put("buffer.memory", 33554432);
+        properties.put("buffer.memory", 33554432);
         properties.put("key.serializer", StringSerializer.class.getName()); // 消息的 key 的序列化方式
         properties.put("value.serializer", StringSerializer.class.getName()); // 消息的 value 的序列化方式
 
