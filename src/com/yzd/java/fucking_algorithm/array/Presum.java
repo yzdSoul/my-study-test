@@ -26,6 +26,7 @@ public class Presum {
         }
         return ans;
     }
+
     int subarraySum2(int[] nums, int k) {
         int n = nums.length;
         HashMap<Integer, Integer> preSum = new HashMap<>();
