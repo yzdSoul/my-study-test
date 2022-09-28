@@ -22,4 +22,6 @@ public interface ProductRepository02 extends ElasticsearchRepository<ESNewDO, In
 
     ESNewDO findByOrigin(String origin);
 
+    ESNewDO findByContent(String keyword);
+
 }
