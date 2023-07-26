@@ -8,7 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-interface/dubbo-demo-interface.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo-interface/dubbo-demo-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-consumer/dubbo-demo-xml-consumer.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-consumer/dubbo-demo-xml-consumer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml/dubbo-demo-xml-provider/dubbo-demo-xml-provider.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml/dubbo-demo-xml-provider/dubbo-demo-xml-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-provider/dubbo-demo-xml-provider.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-provider/dubbo-demo-xml-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-provider/dubbo-demo-xmlprovider.iml" filepath="$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-provider/dubbo-demo-xmlprovider.iml" />
       <module fileurl="file://$PROJECT_DIR$/mystudytest.iml" filepath="$PROJECT_DIR$/mystudytest.iml" />
     </modules>
