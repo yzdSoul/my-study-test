@@ -6,3 +6,29 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+/dataSources.ids
+# Gradle files
+.gradle/
+# Gradle
+build/
+# CMake
+cmake-build-*/
+# Mongo Explorer plugin
+/mongoSettings.xml
+# File-based project format
+*.iws
+# IntelliJ
+out/
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+# JIRA plugin
+atlassian-ide-plugin.xml
+# Cursive Clojure plugin
+/.lein-repl-history
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+# Editor-based Rest Client
+*..xml
+# Android studio 3.1+ serialized cache file
