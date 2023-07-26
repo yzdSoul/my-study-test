@@ -7,9 +7,7 @@
     <bookmark url="file://$PROJECT_DIR$/dubbo-demo/dubbo-demo-xml-consumer/src/main/java/cn/coder/yzd/dubbo/demo/xml/consumer/DubboDemoXmlConsumerApplication.java" line="24" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c551fb70-abbd-4320-96df-0ebcffda6b93" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c551fb70-abbd-4320-96df-0ebcffda6b93" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -2355,7 +2353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690362159977</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="commit">
+      <created>1690362612195</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1690362612195</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
