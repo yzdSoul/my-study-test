@@ -7,11 +7,6 @@
       <option name="url" value="http://repo.9icaishi.net/content/repositories/thirdparty/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="releases" />
       <option name="name" value="nexus releases" />
       <option name="url" value="http://repo.9icaishi.net/content/repositories/releases" />
